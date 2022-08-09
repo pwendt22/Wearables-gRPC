@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "ds.service2";
+option java_outer_classname = "Service2Impl";
+
+package service2;
+
+// Interface exported by the server.
+
+//Smart Watch for sports
+
+service Service2 {
+  
+  //Runing mode
+  //RPC Bidirectional
+  rpc running(runData) returns (stream runAnalysis) {}
+
+  //Calories burned - RPC Bidirectional
+  rpc sportMode(stream sportData) returns (stream sportAnalysis){}
+    
+}
+
+message runData {
+  string text = 1;  
+}
+
+message runAnalysis {
+  int32 length = 1;
+}
+message sportData {
+  string text = 1;
+}
+
+message sportAnalysis {
+  int32 length = 1;
+}

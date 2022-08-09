@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "ds.service3";
+option java_outer_classname = "Service3Impl";
+
+package service3;
+
+// Interface exported by the server.
+//Smart Glasses
+
+service Service3 {
+  
+  rpc playVideo(choseVideo) returns (stream playingVideo) {}
+    
+}
+
+message choseVideo {
+  string text = 1;  
+}
+
+message playingVideo {
+  int32 length = 1;
+}

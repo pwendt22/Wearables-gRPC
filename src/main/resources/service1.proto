@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "ds.service1";
+option java_outer_classname = "Service1Impl";
+
+package service1;
+
+// Interface exported by the server.
+
+// Smart Watch for Health service definition
+service Service1 {
+  //server stream
+  rpc sedentaryReminder(SendAlert) returns (StatusSedentary) {}
+  //Heart Rate RPC Client Stream
+  rpc heartRate(stream heartBeat) returns (avgHeartRate) {}
+    
+}
+//When the user stays a long time without moving the system send an alert message
+message SendAlert {
+  string text = 1;
+}
+
+//
+message StatusSedentary {
+  int32 length = 1;
+}
+
+message heartBeat {
+  string text = 1;
+}
+
+//
+message avgHeartRate {
+  int32 length = 1;
+}
