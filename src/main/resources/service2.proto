@@ -21,17 +21,29 @@ service Service2 {
     
 }
 
+//Runing mode
+
 message runData {
-  string text = 1;  
+  string runMode = 1;
+  int32 steps = 2;
+  double time = 3;
 }
 
 message runAnalysis {
-  int32 length = 1;
+  int32 distance = 1;
+  int32 AvgVelocity = 2;
 }
+
+  //Calories burned - RPC Bidirectional
 message sportData {
-  string text = 1;
+  string typeActvity = 1;
+  int32 AvgVelocity = 2;
+  double durationTime = 3;
+   int32 basalMetab = 4;
 }
 
 message sportAnalysis {
-  int32 length = 1;
+  int32 caloriesBurned = 1;
+  string theGoal = 2;
+  string quote = 3;
 }

@@ -10,15 +10,24 @@ package service3;
 //Smart Glasses
 
 service Service3 {
-  
+  //RPC Server Streaming
   rpc playVideo(choseVideo) returns (stream playingVideo) {}
-    
+  
+  //Activate Bluetooth - RPC Unary
+  rpc actBluetooth(activation) returns (confirmActivation){}
 }
 
 message choseVideo {
-  string text = 1;  
+  string playVideo = 1;
 }
 
 message playingVideo {
-  int32 length = 1;
+  string playing = 1;
+}
+message activation {
+  string bluetoothYes = 1;
+}
+
+message confirmActivation {
+  string conected = 1;
 }

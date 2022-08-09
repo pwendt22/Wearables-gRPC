@@ -10,27 +10,31 @@ package service1;
 
 // Smart Watch for Health service definition
 service Service1 {
+
   //server stream
   rpc sedentaryReminder(SendAlert) returns (StatusSedentary) {}
+
   //Heart Rate RPC Client Stream
   rpc heartRate(stream heartBeat) returns (avgHeartRate) {}
     
 }
 //When the user stays a long time without moving the system send an alert message
 message SendAlert {
-  string text = 1;
+  string noMoviment = 1;
 }
 
 //
 message StatusSedentary {
-  int32 length = 1;
+  int32 SedentaryAlert = 1;
 }
 
+
+//Heart Rate RPC Client Stream
 message heartBeat {
-  string text = 1;
+  int32 heartBeat = 1;
 }
 
 //
 message avgHeartRate {
-  int32 length = 1;
+  int32 avgHeartRate = 1;
 }
